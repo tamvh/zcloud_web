@@ -1,0 +1,175 @@
+<!-- Start header -->
+<img src="assets/img/photos/banner.jpg" style="height: 100%; width: 100%;">
+<div class="block-header">
+    <ul class="nav-header pull-right">
+        <button class="btn btn-default font-w300 text-primary animated flipInX ng-binding" data-toggle="modal" data-target="#modal-create-device" type="button"><i class="si si-plus"></i> Add device</button>
+    </ul>
+    <ul class = "nav-header pull-left">
+        <li>
+            <h1 class="page-heading">
+                Devices
+                <small class="js-header-search header-search"> Management all devices (add, edit, delete)</small>
+            </h1>            
+        </li>
+    </ul>    
+</div>
+<!-- End header -->
+
+<!-- Start Contents -->
+<div ng-repeat="(group, items) in devices">
+    <div class = "bg-gray-lighter">
+        <div class="md-padding">
+            <div layout="row" layout-align = "start center">
+                <span class="md-padding"><i class="si si-grid"></i></span>                
+                <h4 >{{group}}</h4>
+            </div> 
+        </div>
+    </div>
+    <span class = "md-padding"></span>
+    <div class="md-padding" layout="row" layout-xs="column" layout-wrap>
+        <div class="col-sm-3 col-lg-3" ng-repeat="device in items">
+            <a class="block block-link-hover3" href="javascript:void(0)">
+                <div class="block-content block-content text-center">
+                    <div>
+                        <img class ="img-avatar" ng-src="/images/{{device.type| typeToImage}}" ng-click="showDevice(device, $event);"
+                             alt="{{device.name}}"/>
+                    </div>
+                    <span class = "md-padding"></span>
+                    <div class="font-w400 text-primary animated flipInX ng-binding">{{device.name}}</div>
+                    <div><i class="fa fa-battery-4 fa-2x"></i> Battery: {{device.battery}} %</div>
+                </div>
+                <hr>
+                <div class="block-content">
+                    <div class="row items-push text-center">
+                        <div class="col-xs-6" ng-click="getDeviceInfo(device)" data-toggle="modal" data-target="#modal-update-device">
+                            <div class="push-5"><i class="fa fa-edit fa-2x"></i></div>
+                            <div class="h5 font-w300 text-muted">Edit</div>
+                        </div>
+                        <div class="col-xs-6" ng-click="deleteDevice(device)">
+                            <div class="push-5"><i class="glyphicon glyphicon-remove-circle fa-2x"></i></div>
+                            <div class="h5 font-w300 text-muted">Remove</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- End Contents -->
+
+
+<!-- Create Device Modal -->
+<div class="modal" id="modal-create-device" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Create new device</h3>
+                </div>
+                <div class="block-content md-padding">
+                    <form class="js-validation-material form-horizontal push-10-t md-padding" ng-submit="createDevice()">
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice device name..." ng-model="device.name">
+                                <label>Device Name</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice device address..." ng-model="device.address">
+                                <label>Device Address</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <select class="form-control" id="val-skill2" ng-model="device.type">
+                                    <option value="">--- Please select ---</option>
+                                    <option value="01">01 (Power switch)</option>
+                                    <option value="02">02 (Simple lamp(ON/OFF))</option>
+                                    <option value="03">03 (Temp sensor)</option>
+                                    <option value="04">04 (Humidity sensor)</option>
+                                    <option value="05">05 (Light sensor)</option>
+                                    <option value="06">06 (Human presence)</option>
+                                    <option value="07">07 (Smart snake)</option>
+                                </select>
+                                <label>Device Type</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice group name..." ng-model="device.group">
+                                <label>Group Name</label>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal" ng-click="createDevice()"><i class="fa fa-check"></i> Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Create Device Modal -->
+
+<!-- Update device Modal -->
+<div class="modal" id="modal-update-device" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Update device</h3>
+                </div>
+                <div class="block-content md-padding">
+                    <form class="js-validation-material form-horizontal push-10-t md-padding">
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" ng-model="_deviceid" readonly="true">
+                                <label>Device ID</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice device name..." ng-model="_devicename">
+                                <label>Device Name</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice device name..." ng-model="_deviceaddress" readonly="true">
+                                <label>Device Address</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice group name..." ng-model="_groupname">
+                                <label>Group Name</label>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal" ng-click="updateDevice(_devicename, _groupname)"><i class="fa fa-check"></i> Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Update device Modal -->
+
+
+

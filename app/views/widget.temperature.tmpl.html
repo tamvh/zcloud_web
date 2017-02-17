@@ -1,0 +1,31 @@
+<div ng-controller="WidgetTempController as vm">
+    <div class = "md-padding" layout="row" layout-align = "center center">        
+        <!--<canvas id="{{vm.chartid}}" style="width: 100%; height: 50%;"></canvas>-->
+        <div id="{{vm.chartid}}" style="width: 100%; height: 230px;"></div>
+    </div> 
+    <div class="block-content border-t">
+        <div class="row items-push">
+            <div class="col-xs-6 border-r">
+                <div class="push-5 text-center"><i class="si si-energy fa-2x"></i></div>
+                <div>
+                    <ul>
+                        <li>
+                            <div id="{{vm.valueid}}"></div>
+                        </li>
+                        <li>
+                            <div id="{{vm.batteryid}}"></div>
+                        </li>
+                    </ul>                    
+                </div>
+            </div>
+            <div class="col-xs-6 text-center">
+                <div class="push-5"><i class="glyphicon glyphicon-time fa-2x"></i></div>
+                <div>
+                    <p id="{{vm.localtimeid}}"></p>
+                </div>                
+            </div>
+        </div>
+    </div>    
+</div>
+
+

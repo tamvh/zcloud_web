@@ -1,0 +1,18 @@
+<div ng-controller="WidgetSmartSnakeController as vm">
+    <div layout="row" layout-align = "center center">
+       <canvas id="chartAreaSnake"></canvas>
+    </div> 
+    <div class="block-content border-t">
+        <div class="row items-push text-center">
+            <div class="col-xs-6 border-r">
+                <div class="push-5"><i class="fa fa-bolt fa-2x"></i></div>
+                <div class="h5 font-w300 text-muted">Battery: {{vm.deviceValue}} %</div>
+                <div class="h5 font-w300 text-muted">Temperature: {{vm.deviceValue}} &#8451;</div>
+            </div>
+            <div class="col-xs-6">
+                <div class="push-5"><i class="glyphicon glyphicon-time fa-2x"></i></div>
+                <div class="h5 font-w300 text-muted">{{vm.localTime}}</div>
+            </div>
+        </div>
+    </div>   
+</div>   

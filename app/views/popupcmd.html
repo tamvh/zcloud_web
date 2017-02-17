@@ -1,0 +1,7 @@
+<div class="modal-body" ng-model="msg">
+    <form novalidate="novalidate">        
+	<alert ng-repeat="msg in msgList" type="{{msg.type}}" close="clearMsg()">	
+            {{popupMsg}}
+	</alert>
+    </form>
+</div>

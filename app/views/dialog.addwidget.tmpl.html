@@ -1,0 +1,52 @@
+<md-dialog aria-label="Add Widget">
+    <form ng-submit="addWidget()" class="form-horizontal">
+        <md-toolbar style = "background-color: #424242;">
+            <div class="md-toolbar-tools">
+                <h2>Add Widget</h2>                
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" aria-label="Close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div layout-gt-sm="column" layout-margin>
+                <span class="md-subheader">&nbsp;</span>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Widget Name</label>
+                    <input ng-model="widget.name">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Widget Type</label>
+                    <md-select ng-model="widget.type" ng-change="selectWidget()">
+                        <md-option ng-value="01">01 (Power switch)</md-option>
+                        <md-option ng-value="02">02 (Simple lamp)</md-option>
+                        <md-option ng-value="03">03 (Temperature sensor)</md-option>
+                        <md-option ng-value="04">04 (Humidity sensor)</md-option>
+                        <md-option ng-value="05">05 (Light sensor)</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Widget Size</label>
+                    <md-select ng-model="widget.size">
+                        <md-option ng-value="01">Small</md-option>
+                        <md-option ng-value="02">Medium</md-option>
+                        <md-option ng-value="03">Large</md-option>         
+                    </md-select>
+                </md-input-container>
+                
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Device Name</label>
+                    <md-select ng-model="widget.deviceId" ng-change="selectDevice()">
+                        <md-option ng-repeat="device in data.devices" ng-value="device.deviceid">{{ device.name }}</md-option>
+                    </md-select>
+                </md-input-container>                                
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <md-button type="submit" class="md-primary">Add</md-button>
+            <md-button ng-click="closeDialog()" class="md-default">Close</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

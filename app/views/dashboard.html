@@ -1,0 +1,191 @@
+<!-- Header -->
+<img src="assets/img/photos/banner.jpg" style="height: 100%; width: 100%;">
+<div class="block-header border-b">
+    <ul class="nav-header pull-right">
+        <button class="btn btn-default font-w300 text-primary animated flipInX ng-binding" type="button" data-toggle="modal" data-target="#modal-create-widget"><i class = "si si-plus"></i> Add widget</button>
+    </ul>
+    <ul class = "nav-header pull-left">
+        <li>
+            <h1 class="page-heading">
+                Dashboard
+                <small class="js-header-search header-search"> View status device, live chart,...</small>
+            </h1>            
+        </li>       
+    </ul>
+</div>
+
+<!-- Stats -->
+<div class = "block-header js-header-search header-search">
+    <div class="hidden-xs">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <a class="block block-link-hover3 text-center">
+                    <div class="block-content block-content-full">
+                        <div class="h1 font-w700 text-primary animated fadeInDownBig" data-toggle="countTo" data-to="{{totalgroups}}">{{totalgroups}}</div>
+                    </div>
+                    <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600 animated fadeInUpBig">Total Groups</div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="block block-link-hover3 text-center">
+                    <div class="block-content block-content-full">
+                        <div class="h1 font-w700 text-primary animated fadeInUpBig" data-toggle="countTo" data-to="{{totaldevices}}">{{totaldevices}}</div>
+                    </div>
+                    <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600 animated fadeInDownBig">Total Devices</div>
+                </a>           
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="block block-link-hover3 text-center">
+                    <div class="block-content block-content-full">
+                        <div class="h1 font-w700 text-primary animated fadeInDownBig" data-toggle="countTo" data-to="{{totalwidgets}}">{{totalwidgets}}</div>
+                    </div>
+                    <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600 animated fadeInUpBig">Total Widgets</div>
+                </a>            
+            </div>       
+        </div>
+    </div>
+
+    <!--<div class="content">-->
+    <div class="row">
+        <div ng-repeat="item in widgets">
+            <div class="{{item.size| typeToCol}} animated zoomIn">
+                <panel-widget class="block block-themed" 
+                              widget="item" 
+                              title="{{ item.name}}" 
+                              template="/views/{{item.type| typeToTemplateWidget}}" 
+                              options="true">                         
+                </panel-widget> 
+            </div>
+        </div>
+    </div>        
+</div>
+<!-- END Stats -->
+
+<!-- Create Widget Modal -->
+<div class="modal" id="modal-create-widget" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Create widget</h3>
+                </div>
+                <div class="block-content md-padding">
+                    <form class="js-validation-material form-horizontal push-10-t md-padding">
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" placeholder="Choose a nice widget name..." ng-model="widget.name">
+                                <label>Widget Name</label>
+                            </div>
+                        </div>                        
+                        <!--                        <div class="form-group">
+                                                    <div class="form-material">
+                                                        <select class="form-control" ng-model="widget.type">
+                                                            <option value="">--- Please select ---</option>
+                                                            <option value="01">01 (Power switch)</option>
+                                                            <option value="02">02 (Simple lamp)</option>
+                                                            <option value="03">03 (Temperature sensor)</option>
+                                                            <option value="04">04 (Humidity sensor)</option>
+                                                            <option value="05">05 (Light sensor)</option>
+                                                            <option value="06">06 (Human presence)</option>
+                                                            <option value="07">07 (Smart snake)</option>
+                                                        </select>
+                                                        <label>Widget Type</label>
+                                                    </div>
+                                                </div>-->
+                        <div class="form-group">
+                            <div class="form-material">
+                                <select class="form-control" ng-model="widget.size">
+                                    <option value="">--- Please select ---</option>
+                                    <option value="01">Small</option>
+                                    <option value="02">Medium</option>
+                                    <option value="03">Large</option>
+                                </select>
+                                <label>Widget Size</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <select class="form-control" ng-model="widget.deviceId" ng-change="selectDevice()">
+                                    <option value="">--- Please select ---</option>
+                                    <option ng-repeat="device in data.devices" value="{{device.deviceid}}">{{ device.name}}</option>                                    
+                                </select>
+                                <label>Device Name</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal" ng-click="createWidget()"><i class="fa fa-check"></i> Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Create Widget Modal -->
+
+
+<!-- Update Widget Modal -->
+<div class="modal" id="modal-update-widget" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Update widget</h3>
+                </div>
+                <div class="block-content md-padding">
+                    <form class="js-validation-material form-horizontal push-10-t md-padding">
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" ng-model="widget.type" readonly="true">
+                                <label>Widget Type</label>
+                            </div>
+                        </div>    
+                        <div class="form-group">
+                            <div class="form-material">
+                                <input class="form-control" type="text" ng-model="widget.name">
+                                <label>Widget Name</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-material">
+                                <select class="form-control" ng-model="widget.size">
+                                    <option value="01">Small</option>
+                                    <!--<option value="02">Medium</option>-->
+                                    <option value="03">Large</option>
+                                </select>
+                                <label>Widget Size</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <select class="form-control" ng-model="widget.deviceId" ng-change="selectDevice()">
+                                    <option value="">Please select</option>
+                                    <option ng-repeat="device in data.devices" value="{{device.deviceid}}">{{ device.name}}</option>                                    
+                                </select>
+                                <label>Device Name</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal" ng-click="updateWidget()"><i class="fa fa-check"></i> Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Update Widget Modal -->
+

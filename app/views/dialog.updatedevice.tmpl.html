@@ -1,0 +1,43 @@
+<div>
+    <md-dialog aria-label="{{activeDevice.name}}">
+        <form class="form-horizontal">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>{{activeDevice.name}}</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <ng-md-icon icon="close" aria-label="Close"></ng-md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            
+            <md-dialog-content class = "md-padding">
+                <!--<div layout-gt-sm="row">-->
+                    <div class="text-center">
+                        <div ng-include="activeDevice.type | typeToHtml:'/views/types/'"></div>
+                    </div>
+                <!--</div>-->                
+<!--                <div layout-gt-sm="col">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Device ID</label>
+                        <input ng-model="activeDevice.deviceid" disabled>
+                    </md-input-container>                    
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Device Name</label>
+                        <input ng-model="activeDevice.name">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Group Name</label>
+                        <input ng-model="activeDevice.group">
+                    </md-input-container>
+                </div>-->
+            </md-dialog-content>
+<!--            <md-dialog-actions>
+                <md-button ng-click="saveDevice()" class="md-primary">Save</md-button>
+                <md-button ng-click="deleteDevice(activeDevice)" class="md-danger">Delete</md-button>
+                <md-button ng-click="closeDialog()" class="md-default">Close</md-button>
+            </md-dialog-actions>-->
+        </form>
+    </md-dialog>
+</div>
+

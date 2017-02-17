@@ -1,0 +1,57 @@
+{
+  "name": "zcloud frontend app",
+  "version": "0.1.1",
+  "description": "zcloud frontend dependencies",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "iot"
+  ],
+  "authors": [
+    "hoanh@vng.com.vn"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-resource": "~1.4.0",
+    "angular-touch": "~1.4.0",
+    "json3": "~3.3.2",
+    "angular-cookies": "~1.4.8",
+    "d3": "~3.5.12",
+    "nvd3": "~1.8.1",
+    "angularjs-nvd3-directives": "~0.0.7",
+    "angular-dragdrop": "~1.0.12",
+    "angular-sanitize": "~1.4.8",
+    "visibilityjs": "~1.2.1",
+    "angular-material": "~1.0.5",
+    "angular-material-icons": "~0.6.0",
+    "underscore": "~1.8.3",
+    "Chart.js": "~1.0.2"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "1.5.0",
+    "nvd3": "~1.8.1",
+    "d3": "~3.5.12",
+    "angular-sanitize": "~1.4.8",
+    "jquery": ">=1.6"
+  }
+}

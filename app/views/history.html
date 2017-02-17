@@ -1,0 +1,58 @@
+<div class="block">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li>
+                <button class="js-tooltip" title="" type="button" data-toggle="block-option" data-original-title="Previous 15 Messages" ng-click="prePage()"><i class="si si-arrow-left"></i></button>
+            </li>
+            <li>
+                <button class="js-tooltip" title="" type="button" data-toggle="block-option" data-original-title="Next 15 Messages" ng-click="nextPage()"><i class="si si-arrow-right"></i></button>
+            </li>
+            <li>
+                <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo" ng-click="reload()"><i class="si si-refresh"></i></button>
+            </li>
+        </ul>
+        <div class="block-title text-normal">
+            <strong>{{startPage}}-{{endPage}}</strong> <span class="font-w400">from</span> <strong>{{totalItems}}</strong>
+        </div>
+    </div>
+    <div>
+        <div class="block-content">
+            <!-- Messages Options -->
+            <div class="btn-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Select device</label>
+                    <md-select ng-model="deviceId" ng-change="selectDevice()">
+                        <md-option ng-repeat="device in data.devices" ng-value="device.deviceid">{{ device.name }}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <!-- END Messages Options -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 50px;">#</th>
+                        <th>Time</th>
+                        <th>Value</th>
+                        <th>Source</th>
+                        <th class="text-center" style="width: 100px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="log in logCurrentPage">
+                        <td class="text-center">{{log.no}}</td>
+                        <td>{{log.time}}</td>
+                        <td>{{log.value}}</td>
+                        <td>
+                            <span class="label label-danger">{{log.source}}</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Remove Client"><i class="fa fa-times"></i></button>
+                            </div>
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

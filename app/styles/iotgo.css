@@ -1,0 +1,464 @@
+
+
+/* old content */
+
+body {
+    font-family: 'Droid Sans', sans-serif;
+}
+.navbar-brand,
+.navbar-nav {
+    text-transform: uppercase;
+}
+.navbar-brand {
+    text-indent: -9999px;
+    background: transparent url(../images/zcloud-logo.png) 0 0 no-repeat scroll;
+    width: 95px;
+}
+.iotgo-menu {
+    margin-left: 2em;
+}
+.main {
+    min-height: 480px;
+    margin-bottom: 40px;
+}
+.main h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.main h2 {
+    font-size: 20px;
+}
+.main h3 {
+    font-size: 18px;
+}
+.main h4 {
+    font-size: 16px;
+}
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.login h1, .login input.form-control,
+.signup h1, .signup input.form-control {
+    text-align: center;
+}
+.devices .panel-title.pull-left {
+    padding: 6px 0;
+}
+.device-group {
+    margin: 0 15px 15px 0;
+    float: left;
+    width: 256px;
+}
+.device-group > .panel-body {
+    min-height: 228px;
+}
+.device {
+    width: 64px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+}
+.device > img {
+    width: 64px;
+    display: block;
+}
+.device > span {
+    display: block;
+    margin-top: 5px;
+}
+.device-params {
+    font-size: 3em;
+}
+.device-params pre {
+    text-align: left;
+}
+.about {
+    background-color: gainsboro;
+}
+.about li {
+    line-height: 1.8em;
+}
+.copyright {
+    color: #FFF;
+    background-color: #444;
+    padding: 1em;
+}
+.copyright .logo-grey {
+    text-indent: -9999px;
+    background: transparent url(../images/zcloud-logo.png) left center no-repeat scroll;
+    padding: 1em 0;
+    margin: -1em 0;
+}
+.copyright a {
+    color: #FFF;
+}
+/* Home page */
+.iotgo-slideshow {
+    position: relative;
+}
+.iotgo-slideshow-indicators {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+div.rn-carousel-indicator span {
+    display: inline-block;
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    text-indent: -999em;
+    background-color: #dddddd;
+}
+div.rn-carousel-indicator span.active {
+    background-color: red;
+}
+.iotgo-features {
+    margin: 0;
+    background-color: gainsboro;
+    border-bottom: 2px solid #444;
+}
+.iotgo-features h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+.iotgo-platforms {
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 2px solid #DDD;
+}
+.iotgo-platforms .text-muted {
+    font-size: 20px;
+    font-weight: bold;
+}
+.iotgo-platforms .list-inline {
+    text-align: right;
+}
+.iotgo-platforms .list-inline>li {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.iotgo-process h4 {
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.iotgo-diy {
+    color: #0066ff;
+}
+.iotgo-ready {
+    color: #009900;
+}
+
+/* Hardware Reference */
+.hardware .text-center .img-responsive {
+    margin: auto;
+}
+.hardware .row-border {
+    margin: 20px auto;
+    border: 2px solid #DDD;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+}
+
+/* Guide */
+.guide .sidebar-nav {
+    border: 1px solid #DDD;
+    border-radius: 5px;
+}
+.guide .nav .nav {
+    margin-left: 1em;
+}
+
+/* Hardware Reference */
+.solution .text-center .img-responsive {
+    margin: auto;
+}
+
+@media (max-width: 767px) {
+    .iotgo-menu {
+        margin: 7.5px -15px;
+    }
+    .copyright .container > div {
+        margin: 1em 0;
+        padding: 0;
+    }
+    .copyright .container .text-center,
+    .copyright .container .text-right {
+        text-align: left!important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .iotgo-menu {
+        margin-left: 0;
+    }
+    .navbar-default .navbar-collapse {
+        position: relative;
+        padding: 0;
+        margin-left: -15px;
+    }
+    .navbar-default .navbar-right {
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+    .iotgo-slideshow ul,
+    .iotgo-slideshow ul img {
+        width: 720px;
+        height: 239px;
+    }
+}
+
+@media (max-width: 767px) {
+    .iotgo-slideshow ul,
+    .iotgo-slideshow ul img {
+        width: 720px;
+        height: 239px;
+    }
+}
+
+@media (min-width: 992px) {
+    .iotgo-slideshow ul,
+    .iotgo-slideshow ul img {
+        width: 940px;
+        height: 312px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .iotgo-slideshow ul,
+    .iotgo-slideshow ul img {
+        width: 1140px;
+        height: 378px;
+    }
+}
+
+.btn-action{
+    margin-top:.6em;
+    margin-left:.6em
+}
+
+.ub-content-header{
+    min-height:43px
+}
+
+.ub-content-header h2{
+    display:inline-block;
+    margin-bottom:0
+}
+
+.ub-content-header .title-header{
+    line-height:40px
+}
+
+.ub-content-header .title-header form{
+    margin-top:10px
+}
+
+.ub-content-header .title-header h2{
+    border-bottom:none;
+    color:#333
+}
+
+.ub-content-header .title-header h2:hover{
+    color:#08c
+}
+
+.ub-content-header .action-link{
+    display:block;
+    font-size:10pt;
+    position:absolute;
+    right:3.9%
+}
+
+.ub-content-header .action-ds{
+    display:inline
+}
+
+.ub-content-content{
+    margin-top:15px
+}
+
+.ub-content-content .ub-content-row-step{
+    margin-top:30px;
+    margin-bottom:50px
+}
+
+@media(max-width:620px){
+    .ub-content-header .action-ds{
+        display:inline-block;
+        float:right
+    }
+    .ub-content-header .action-link{
+        margin-top:1em;
+        text-align:center;
+        width:100%}
+}
+
+@media(min-width:980px){
+    .modal{
+/*        width:700px;
+           margin-left:-350px*/
+    }
+}
+
+.btn-action{
+    float:right;
+    margin-right:10px;
+    margin-top:23px
+}
+
+.btn-action-h2{
+    float:right;
+    margin-right:10px;
+    margin-top:4px
+}
+
+
+.ub-icon-add{
+    background-image:url('/images/add-new-icon.png');
+    width:18px;
+    height:18px;
+}
+
+.ub-icon-add:hover{
+    zoom:1;
+    filter:alpha(opacity=60);
+    -webkit-opacity:.6;
+    -moz-opacity:.6;
+    opacity:.6
+}
+
+.infobox-insights-body-wrapper::before {
+    background-color: red;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.infobox-insights-body-wrapper {
+    background-color: white;
+    height: 208px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.ub-content-header{min-height:43px}
+
+
+.top-n .grid {
+    height: 350px;
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.line-chart, .bar-chart {
+    height: 220px
+}
+
+.tooltip{
+    position:absolute;
+    z-index:1030;
+    display:block;
+    visibility:visible;
+    font-size:11px;
+    line-height:1.4;
+    opacity:0;
+    filter:alpha(opacity=0)
+}
+.tooltip.in{
+    opacity:.8;
+    filter:alpha(opacity=80)
+}
+.tooltip.top{
+    margin-top:-3px;
+    padding:5px 0
+}
+.tooltip.right{
+    margin-left:3px;
+    padding:0 5px
+}
+.tooltip.bottom{
+    margin-top:3px;
+    padding:5px 0
+}
+.tooltip.left{
+    margin-left:-3px;
+    padding:0 5px
+}
+.tooltip-inner{
+    max-width:200px;
+    padding:8px;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    background-color:#2fbd68;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0
+}
+.tooltip-arrow{
+    position:absolute;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid
+}
+.tooltip.top .tooltip-arrow{
+    bottom:0;left:50%;
+    margin-left:-5px;
+    border-width:5px 5px 0;
+    border-top-color:#2fbd68
+}
+.tooltip.right .tooltip-arrow{
+    top:50%;
+    left:0;
+    margin-top:-5px;
+    border-width:5px 5px 5px 0;
+    border-right-color:#2fbd68
+}
+.tooltip.left .tooltip-arrow{
+    top:50%;
+    right:0;
+    margin-top:-5px;
+    border-width:5px 0 5px 5px;
+    border-left-color:#2fbd68
+}
+
+.tooltip.bottom .tooltip-arrow{
+    top:0;
+    left:50%;
+    margin-left:-5px;
+    border-width:0 5px 5px;
+    border-bottom-color:#2fbd68
+}
+
+* { padding: 0; margin: 0; }
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+}
+#fullheight {
+    position:absolute; top:0; bottom:0; right:0; left:0;
+}
+
+.fontheader {
+    font-size: 7px;
+}
+
+.md-raised-header:not([disabled]) {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.block-center {
+    text-align: center;
+}

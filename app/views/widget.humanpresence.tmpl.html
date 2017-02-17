@@ -1,0 +1,17 @@
+<div ng-controller="WidgetHumanPresenceController as vm">
+    <div class = "text-center push-10-t push-30">
+        <img class ="img-avatar" ng-src="/images/{{vm.typeImg| typeToImage}}" alt="{{vm.typeImg| typeToImage}}">
+    </div> 
+    <div class="block-content border-t">
+        <div class="row items-push text-center">
+            <div class="col-xs-6 border-r">
+                <div class="push-5"><i class="fa fa-bolt fa-2x"></i></div>
+                <div class="h5 font-w300 text-muted">{{vm.deviceValue}}</div>
+            </div>
+            <div class="col-xs-6">
+                <div class="push-5"><i class="glyphicon glyphicon-time fa-2x"></i></div>
+                <div class="h5 font-w300 text-muted">{{vm.localTime}}</div>
+            </div>
+        </div>
+    </div>   
+</div>   
